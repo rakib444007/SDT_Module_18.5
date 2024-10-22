@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+
+<form style="width: 50%; margin: auto;" method="post">
+    <h1>Profile Update page</h1>
+    {% csrf_token %}
+    <!-- {{form|crispy}} -->
+    {% for fm in form %}
+    {{fm.label_tag}}
+    {{fm}}
+    {{fm.errors|striptags}}
+    {% endfor %}
+    <button class="btn btn-primary mt-4">Submit</button>
+</form>
+{% endblock content %}
